@@ -46,6 +46,7 @@ public class Botones {
         Numero1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.append("1");
+				textArea.requestFocusInWindow();
             }
         });
         Numero1.setBackground(Color.YELLOW);
@@ -56,6 +57,7 @@ public class Botones {
         Numero2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.append("2");
+				textArea.requestFocusInWindow();
             }
         });
         Numero2.setBackground(Color.LIGHT_GRAY);
@@ -66,6 +68,7 @@ public class Botones {
         Numero3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.append("3");
+				textArea.requestFocusInWindow();
             }
         });
         Numero3.setBackground(Color.GREEN);

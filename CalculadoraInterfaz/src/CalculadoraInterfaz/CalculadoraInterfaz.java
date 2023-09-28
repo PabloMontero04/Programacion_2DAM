@@ -59,22 +59,34 @@ public class CalculadoraInterfaz {
 		JButton Numero1 = new JButton("1");
 		Numero1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("1");
 			}
 		});
 		Numero1.setBounds(46, 193, 59, 23);
 		frame.getContentPane().add(Numero1);
 		
 		JButton Numero4 = new JButton("4");
+		Numero4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("4");
+			}
+		});
 		Numero4.setBounds(46, 159, 59, 23);
 		frame.getContentPane().add(Numero4);
 		
 		JButton Numero7 = new JButton("7");
+		Numero7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("7");
+			}
+		});
 		Numero7.setBounds(46, 125, 59, 23);
 		frame.getContentPane().add(Numero7);
 		
 		JButton Numero8 = new JButton("8");
 		Numero8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("8");
 			}
 		});
 		Numero8.setBounds(132, 125, 59, 23);
@@ -83,6 +95,7 @@ public class CalculadoraInterfaz {
 		JButton Numero5 = new JButton("5");
 		Numero5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("5");
 			}
 		});
 		Numero5.setBounds(132, 159, 59, 23);
@@ -91,26 +104,43 @@ public class CalculadoraInterfaz {
 		JButton Numero2 = new JButton("2");
 		Numero2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("2");
 			}
 		});
 		Numero2.setBounds(132, 193, 59, 23);
 		frame.getContentPane().add(Numero2);
 		
 		JButton Numero9 = new JButton("9");
+		Numero9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("9");
+			}
+		});
 		Numero9.setBounds(221, 125, 59, 23);
 		frame.getContentPane().add(Numero9);
 		
 		JButton Numero6 = new JButton("6");
+		Numero6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("6");
+			}
+		});
 		Numero6.setBounds(221, 159, 59, 23);
 		frame.getContentPane().add(Numero6);
 		
 		JButton Numero3 = new JButton("3");
+		Numero3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("3");
+			}
+		});
 		Numero3.setBounds(221, 193, 59, 23);
 		frame.getContentPane().add(Numero3);
 		
 		JButton Resultado = new JButton("=");
 		Resultado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("=");
 			}
 		});
 		Resultado.setBounds(221, 227, 59, 23);
@@ -119,6 +149,7 @@ public class CalculadoraInterfaz {
 		JButton Punto = new JButton(".");
 		Punto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append(".");
 			}
 		});
 		Punto.setBounds(132, 227, 59, 23);
@@ -127,6 +158,7 @@ public class CalculadoraInterfaz {
 		JButton Numero0 = new JButton("0");
 		Numero0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("0");
 			}
 		});
 		Numero0.setBounds(46, 227, 59, 23);
@@ -135,18 +167,25 @@ public class CalculadoraInterfaz {
 		JButton Dividir = new JButton(" /");
 		Dividir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("/");
 			}
 		});
 		Dividir.setBounds(305, 125, 59, 23);
 		frame.getContentPane().add(Dividir);
 		
 		JButton Multiplicacion = new JButton("x");
+		Multiplicacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("x");
+			}
+		});
 		Multiplicacion.setBounds(305, 159, 59, 23);
 		frame.getContentPane().add(Multiplicacion);
 		
 		JButton Resta = new JButton("-");
 		Resta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("-");
 			}
 		});
 		Resta.setBounds(305, 193, 59, 23);
@@ -155,6 +194,8 @@ public class CalculadoraInterfaz {
 		JButton Suma = new JButton("+");
 		Suma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.append("+");
+				textArea.requestFocusInWindow();
 			}
 		});
 		Suma.setBounds(305, 227, 59, 23);
@@ -163,6 +204,7 @@ public class CalculadoraInterfaz {
 		JButton Borrar = new JButton("CE");
 		Borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
 			}
 		});
 		Borrar.setBounds(305, 91, 59, 23);
