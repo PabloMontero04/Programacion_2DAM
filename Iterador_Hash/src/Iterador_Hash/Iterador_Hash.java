@@ -3,64 +3,111 @@ package Iterador_Hash;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Map;
 
 public class Iterador_Hash<T> {
     private Hashtable<String, T> hashtable = new Hashtable<String, T>();
 
-    public void insertarDato(String key, T value) {
-        hashtable.put(key, value);
+    private int capacidad = 10; 
+    private int tamaño = 0; 
+
+    public void insertarDato(String key) {
+        if (tamaño >= capacidad) {
+            System.out.println("La tabla hash esta llena. No se puede insertar mas elementos.");
+            return;
+        }
+
+        int indice = hash(key);
+
+        while (hashtable.containsKey(Integer.toString(indice))) {
+            indice = (indice + 1) % capacidad;
+        }
+
+        hashtable.put(Integer.toString(indice), (T) key);
+        tamaño++;
     }
 
     public void borrarDato(String key) {
-        hashtable.remove(key);
-    }
+        int indice = buscarIndice(key);
 
-    public void mostrarDatos() {
-        Iterator<String> iterator = hashtable.keySet().iterator();
-        while (iterator.hasNext()) {
-            String key = iterator.next();
-            T value = hashtable.get(key);
-            System.out.println("Materia: " + key + ", Calificacion: " + value);
+        if (indice != -1) {
+            hashtable.remove(Integer.toString(indice));
+            tamaño--;
         }
     }
 
+    public void mostrarDatos() {
+        for (int i = 0; i < capacidad; i++) {
+            String key = Integer.toString(i);
+            T value = hashtable.get(key);
+            if (value != null) {
+                System.out.println("Indice: " + key + ", Numero: " + value);
+            } else {
+                System.out.println("Indice: " + key + ", Numero: 0");
+            }
+        }
+    }
+
+    private int hash(String key) {
+        int hash = 0;
+        for (int i = 0; i < key.length(); i++) {
+            hash = (hash + key.charAt(i)) % capacidad;
+        }
+        return hash;
+    }
+
+    private int buscarIndice(String key) {
+        int indice = hash(key);
+
+        while (hashtable.containsKey(Integer.toString(indice))) {
+            if (hashtable.get(Integer.toString(indice)).equals(key)) {
+                return indice;
+            }
+            indice = (indice + 1) % capacidad;
+        }
+
+        return -1; 
+    }
+
     public static void main(String[] args) {
-        Iterador_Hash<String> materias = new Iterador_Hash<String>();
+        Iterador_Hash<String> numerosCodificados = new Iterador_Hash<String>();
         Scanner scanner = new Scanner(System.in);
 
         boolean continuar = true;
 
         while (continuar) {
             System.out.println("\nMenu:");
-            System.out.println("1. Insertar materia");
-            System.out.println("2. Mostrar calificaciones");
-            System.out.println("3. Borrar materia");
+            System.out.println("1. Insertar numero");
+            System.out.println("2. Mostrar tabla hash completa");
+            System.out.println("3. Borrar numero");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opcion: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine();  
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Ingrese el nombre de la materia: ");
-                    String materia = scanner.nextLine();
-                    System.out.print("Ingrese la calificacion: ");
-                    String calificacion = scanner.nextLine();
-                    materias.insertarDato(materia, calificacion);
-                    System.out.println("Materia insertada.");
+                    if (numerosCodificados.tamaño < 10) {
+                        System.out.print("Ingrese el numero: ");
+                        String numero = scanner.nextLine();
+                        numerosCodificados.insertarDato(numero);
+                        System.out.println("Numero insertado con codificacion lineal.");
+                    } else {
+                        System.out.println("La tabla hash está llena. No se pueden insertar más elementos.");
+                    }
                     break;
 
                 case 2:
-                    System.out.println("Calificaciones de materias:");
-                    materias.mostrarDatos();
+                    System.out.println("Tabla Hash completa:");
+                    numerosCodificados.mostrarDatos();
                     break;
 
                 case 3:
-                    System.out.print("Ingrese el nombre de la materia a eliminar: ");
-                    String materiaAEliminar = scanner.nextLine();
-                    materias.borrarDato(materiaAEliminar);
-                    System.out.println("Materia eliminada.");
+                    System.out.print("Ingrese el numero a eliminar: ");
+                    String numeroAEliminar = scanner.nextLine();
+                    numerosCodificados.borrarDato(numeroAEliminar);
+                    System.out.println("Numero eliminado.");
                     break;
 
                 case 4:
@@ -77,6 +124,3 @@ public class Iterador_Hash<T> {
         System.out.println("Gracias por usar el programa.");
     }
 }
-
-
-
