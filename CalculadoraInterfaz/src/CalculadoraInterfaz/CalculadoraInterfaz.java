@@ -57,6 +57,7 @@ public class CalculadoraInterfaz {
 		frame.getContentPane().add(textArea);
 		
 		JButton Numero1 = new JButton("1");
+		Numero1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		Numero1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.append("1");

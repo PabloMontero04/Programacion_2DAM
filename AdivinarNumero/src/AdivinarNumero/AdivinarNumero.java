@@ -77,12 +77,12 @@ public class AdivinarNumero {
     }
 
     private void iniciarJuego() {
-        numeroAdivinar = new Random().nextInt(101); // Genera un número aleatorio del 0 al 100
-        intentosRestantes = 10; // Número de intentos permitidos
+        numeroAdivinar = new Random().nextInt(101); 
+        intentosRestantes = 10; 
         juegoTerminado = false;
         reiniciar.setVisible(false); 
         textArea.setText("Adivina un numero del 0 al 100. Tienes " + intentosRestantes + " intentos.");
-        frame.getContentPane().setBackground(new Color(135, 206, 235)); // Restaurar el color de fondo
+        frame.getContentPane().setBackground(new Color(135, 206, 235)); 
     }
 
     private void verificarIntento(int intento) {
