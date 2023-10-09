@@ -45,8 +45,10 @@ public class AplicacionTroll {
                     VentanaEmergente.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
                     // Genera ubicaciones aleatorias para las ventanas emergentes en toda la pantalla
+                    
                     int maxX = (int) (Toolkit.getDefaultToolkit().getScreenSize().getWidth() - VentanaEmergente.getWidth());
                     int maxY = (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - VentanaEmergente.getHeight());
+                    
                     int x = (int) (Math.random() * maxX);
                     int y = (int) (Math.random() * maxY);
                     VentanaEmergente.setLocation(x, y);
@@ -58,10 +60,11 @@ public class AplicacionTroll {
                     VentanaEmergente.setVisible(true);
 
                     // Agregar animación para mover las ventanas emergentes
+                    
                     Timer movimientoTimer = new Timer();
                     movimientoTimer.schedule(new TimerTask() {
-                        int PosicionX = 2; // Cambia la posición horizontal
-                        int PosicionY = 2; // Cambia la posición vertical
+                        int PosicionX = 2; 
+                        int PosicionY = 2; 
                         int PosicionXActual = x;
                         int PosicionYActual = y;
 
@@ -82,7 +85,7 @@ public class AplicacionTroll {
                     }, 0, 50);
 
                 }
-            }, i * 400); // Espera 2 segundos entre cada ventana emergente
+            }, i * 400); // Espera 0,4 segundos entre cada ventana emergente
         }
     }
 
