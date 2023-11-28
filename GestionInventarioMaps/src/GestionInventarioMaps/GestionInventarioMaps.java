@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class GestionInventarioMaps {
 
@@ -20,7 +22,7 @@ public class GestionInventarioMaps {
 
 
     public GestionInventarioMaps() {
-        frame = new JFrame();
+        frame = new JFrame("Inventario");
         frame.setBounds(100, 100, 450, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
@@ -32,7 +34,9 @@ public class GestionInventarioMaps {
         panel.setLayout(null);
         
         JButton Añadir = new JButton("Añadir");
-        Añadir.setBounds(165, 27, 89, 23);
+        Añadir.setForeground(SystemColor.desktop);
+        Añadir.setBackground(SystemColor.activeCaption);
+        Añadir.setBounds(106, 21, 208, 44);
         panel.add(Añadir);
         Añadir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -61,7 +65,8 @@ public class GestionInventarioMaps {
 
         
         JButton Listar = new JButton("Listar");
-        Listar.setBounds(165, 82, 89, 23);
+        Listar.setBackground(SystemColor.activeCaption);
+        Listar.setBounds(106, 76, 208, 44);
         panel.add(Listar);
         Listar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -80,7 +85,8 @@ public class GestionInventarioMaps {
  
         
         JButton Vender = new JButton("Vender");
-        Vender.setBounds(165, 143, 89, 23);
+        Vender.setBackground(SystemColor.activeCaption);
+        Vender.setBounds(106, 131, 208, 41);
         panel.add(Vender);
         Vender.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -112,11 +118,12 @@ public class GestionInventarioMaps {
         
         
         JButton Eliminar = new JButton("Eliminar");
+        Eliminar.setBackground(SystemColor.activeCaption);
         Eliminar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
         });
-        Eliminar.setBounds(165, 195, 89, 23);
+        Eliminar.setBounds(106, 183, 208, 44);
         panel.add(Eliminar);
         Eliminar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

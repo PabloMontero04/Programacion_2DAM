@@ -34,7 +34,7 @@ public class NotaEstudiantesMaps {
     
 
     private void initialize() {
-        frame = new JFrame();
+        frame = new JFrame("Notas");
         frame.setBounds(100, 100, 450, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);

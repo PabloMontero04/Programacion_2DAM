@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MochilaBacktracking {
+	
+	
+	
 	// Método principal para encontrar soluciones al problema de la mochila
 	public static List<List<Integer>> encontrarSoluciones(int[] pesos, int capacidad) {
 		List<List<Integer>> soluciones = new ArrayList<>();
@@ -13,6 +16,7 @@ public class MochilaBacktracking {
 
 		return soluciones;
 	}
+	
 
 	// Función recursiva para realizar el backtracking y encontrar las soluciones
 	private static void backtrack(int indice, int[] pesos, int capacidad, int pesoActual, int limitePeso, List<Integer> solucionActual, List<List<Integer>> soluciones) {
@@ -34,9 +38,11 @@ public class MochilaBacktracking {
 			backtrack(indice + 1, pesos, capacidad, pesoActual, limitePeso + pesos[indice], solucionActual, soluciones);
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
-		int[] pesos = {10, 20, 40};
+		int[] pesos = {10, 20, 30};
 		int capacidad = 50;
 
 		// Encuentra las soluciones al problema de la mochila
