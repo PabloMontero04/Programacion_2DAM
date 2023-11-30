@@ -13,6 +13,7 @@ public class Ejercicio4_ProcesamientoDeDatosEnLote {
         String rutaArchivoCSV = "src/archivos/productos.csv";
 
         try {
+            // Leer la lista de productos desde el archivo CSV
             List<Producto> productos = leerArchivoCSV(rutaArchivoCSV);
 
             // Mostrar la lista de productos
@@ -22,6 +23,7 @@ public class Ejercicio4_ProcesamientoDeDatosEnLote {
             // Utiliza una función lambda para calcular el precio medio
             double precioMedio = calcularPrecioMedio(productos);
 
+            // Mostrar el precio medio de todos los productos
             System.out.println("\nEl precio medio de todos los productos es: " + precioMedio);
 
         } catch (IOException e) {
@@ -31,13 +33,16 @@ public class Ejercicio4_ProcesamientoDeDatosEnLote {
 
     private static List<Producto> leerArchivoCSV(String rutaArchivo) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+            // Leer líneas del archivo, omitir la primera línea si contiene encabezados
             return br.lines()
-                    .skip(1) // Saltar la primera línea si contiene encabezados
+                    .skip(1)
                     .map(linea -> {
+                        // Dividir cada línea por comas y crear un objeto Producto
                         String[] partes = linea.trim().split(",");
                         if (partes.length >= 2) {
                             return new Producto(partes[0], Double.parseDouble(partes[1]));
                         } else {
+                            // Imprimir un mensaje de error si hay un problema al analizar la línea
                             System.err.println("Error parsing line: " + linea);
                             return null;
                         }
@@ -48,6 +53,7 @@ public class Ejercicio4_ProcesamientoDeDatosEnLote {
     }
 
     private static double calcularPrecioMedio(List<Producto> productos) {
+        // Calcular el precio medio utilizando expresiones lambda y API de Streams
         return productos.stream()
                 .mapToDouble(Producto::getPrecio)
                 .average()
