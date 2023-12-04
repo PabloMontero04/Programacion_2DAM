@@ -43,7 +43,7 @@ public class Ejercicio5_ProgramaciónConcurrente {
                 .collect(Collectors.toList());
     }
 
-    // Clase para realizar la suma en paralelo usando ForkJoinTask
+    // Clase para realizar la suma en paralelo 
     static class TareaSuma extends RecursiveTask<List<Integer>> {
         private final List<List<Integer>> particiones;
 
